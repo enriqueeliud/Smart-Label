@@ -8,6 +8,8 @@ require("dotenv").config()
 
 app.use(cors());
 
+app.use(express.static(path.join(__dirname , "client/build")))
+
 mongoose.connect(process.env.MONGODB_URI,{useNewUrlParser:true},{useUnifiedTopology:true})
  .then(() => {console.log("connected to mongo db")})
  .catch(err => console.log(err))
